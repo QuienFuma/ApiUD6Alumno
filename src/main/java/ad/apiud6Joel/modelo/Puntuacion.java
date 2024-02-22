@@ -1,4 +1,4 @@
-package ad.apiud6alumno.modelo;
+package ad.apiud6Joel.modelo;
 
 import jakarta.persistence.*;
 
@@ -18,10 +18,11 @@ public class Puntuacion {
     public Puntuacion() {
     }
 
-    public Puntuacion(long puntuacion, String modo, String nickJugador) {
+    public Puntuacion(long puntuacion, String modo, String nickJugador,Juego juego) {
         this.puntuacion = puntuacion;
         this.modo = modo;
         this.nickJugador = nickJugador;
+        this.juego = juego;
     }
 
     public String getModo() {
@@ -54,5 +55,13 @@ public class Puntuacion {
 
     public void setNickJugador(String nickJugador) {
         this.nickJugador = nickJugador;
+    }
+
+    public Juego getJuego() {
+        return juego;
+    }
+
+    public void setJuego(Juego juego) {
+        this.juego = juego;
     }
 }

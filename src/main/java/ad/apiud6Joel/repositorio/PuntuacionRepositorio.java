@@ -1,6 +1,6 @@
-package ad.apiud6alumno.repositorio;
+package ad.apiud6Joel.repositorio;
 
-import ad.apiud6alumno.modelo.Puntuacion;
+import ad.apiud6Joel.modelo.Puntuacion;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import org.springframework.stereotype.Repository;
