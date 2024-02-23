@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+//@CrossOrigin
 @RestController
 @RequestMapping("/api/juego")
 public class JuegoControlador {
@@ -46,5 +47,12 @@ public class JuegoControlador {
     @DeleteMapping("/{id}")
     public void eliminarJuego(@PathVariable Long id){
         juegoRepositorio.deleteById(id);
+    }
+
+
+    //Buscar juego por nombre
+    @GetMapping("/nombre/{texto}")
+    public List<Juego> devolverJuegoporNombre (@PathVariable String texto){
+        return juegoRepositorio.findJuegoByNombre(texto);
     }
 }
