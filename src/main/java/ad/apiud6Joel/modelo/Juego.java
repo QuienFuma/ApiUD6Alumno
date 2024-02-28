@@ -14,9 +14,7 @@ public class Juego {
     @NotBlank(message="El nombre no puede estar vacio")
     String nombre;
 
-
-
-    public Juego() {
+   public Juego() {
     }
 
     public Juego(String nombre) {

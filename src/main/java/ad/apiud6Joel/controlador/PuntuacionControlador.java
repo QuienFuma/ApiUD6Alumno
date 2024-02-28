@@ -18,7 +18,6 @@ public class PuntuacionControlador {
     private PuntuacionRepositorio puntuacionRepositorio;
     @Autowired
     private JuegoRepositorio juegoRepositorio;
-
     //Todos las puntuaciones
     @GetMapping
     public List<Puntuacion> obtenerPuntuacion(){
@@ -31,7 +30,6 @@ public class PuntuacionControlador {
         return resultado.orElseThrow(()->
                 new RuntimeException("Puntuacion no encontrada"));
     }
-
     //Todos las puntuaciones de una categoria
       @GetMapping("/categoria/{id}")
     public List<Puntuacion> obtenerPuntuacionesPorCategoria(@PathVariable Long id){
@@ -39,7 +37,6 @@ public class PuntuacionControlador {
         List<Puntuacion> resultado = puntuacionRepositorio.findAllByJuego(juego);
         return resultado;
     }
-
     //Crear puntuacion
     @PostMapping("/juego/{id}")
     public Puntuacion crearPuntuacion(@PathVariable Long id,@RequestBody Puntuacion puntuacion){
@@ -51,8 +48,6 @@ public class PuntuacionControlador {
         ).orElseThrow(() -> new RuntimeException("Recurso no encontrada"));
         return rec;
     }
-
-
     //actualizar una puntuacion
     @PutMapping("/{id}")
     public Puntuacion actualizarPuntuacion(@PathVariable Long id, @RequestBody Puntuacion puntuacion){
@@ -65,7 +60,6 @@ public class PuntuacionControlador {
                 }).orElseThrow(() -> new RuntimeException("Juego no encontrado"));
     }
     //eliminar puntuacion
-
     @DeleteMapping("/{id}")
     public void eliminarPuntuacion(@PathVariable Long id){
         puntuacionRepositorio.deleteById(id);

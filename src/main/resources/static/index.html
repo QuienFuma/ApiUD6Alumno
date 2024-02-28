@@ -11,6 +11,26 @@
 <select id="comboJuegos" onchange="mostrarPuntuaciones(this.value);"></select>
 
 <h2>Crear puntuacion</h2>
+<p>
+ <label>Modo</label>
+<input id="modo">
+</p>
+<p>
+<label>Nickname</label>
+<input id="nickname">
+</p>
+<p>
+<label>Puntos</label>
+<input id="puntos">
+</p>
+    <button onclick="crearPuntuacion()">GUARDAR</button>
+<h2>Borrar o modificar puntuacion</h2>
+<p>
+    <label>Id puntuación</label>
+    <input id="idPuntuacion">
+</p>
+    <button onclick="borrarPuntuacion()">BORRAR</button>
 
+<button onclick="modificarPuntuacion()">MODIFICAR</button>
 </body>
 </html>

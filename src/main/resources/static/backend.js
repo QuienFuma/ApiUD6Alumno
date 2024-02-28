@@ -24,7 +24,6 @@ function rellenaCombo(resultado){
         opcion.value=juego.id;
         selector.appendChild(opcion);
     }
-
 }
 
 //Buscar las puntuaciones del juego seleccionado
@@ -39,17 +38,16 @@ function mostrarPuntuaciones(id){
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
 }
-function crearPuntuacion(id){
+function crearPuntuacion(){
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
 
     const raw = JSON.stringify({
-        "modo": "DeathMatch",
-        "nickJugador": "Tenz",
-        "puntuacion": 10400,
-        "id_juego": 3
+        "modo": document.getElementById("modo").value,
+        "nickJugador": document.getElementById("nickname").value,
+        "puntuacion": document.getElementById("puntos").value
     });
-
+    console.log(raw);
     const requestOptions = {
         method: "POST",
         headers: myHeaders,
@@ -57,7 +55,41 @@ function crearPuntuacion(id){
         redirect: "follow"
     };
 
-    fetch("http://localhost:8080/api/puntuacion/juego/2", requestOptions)
+    fetch("http://localhost:8080/api/puntuacion/juego/"+ document.getElementById("comboJuegos").value, requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
+}
+function borrarPuntuacion(){
+    const requestOptions = {
+        method: "DELETE",
+        redirect: "follow"
+    };
+
+    fetch("http://localhost:8080/api/puntuacion/"+document.getElementById("idPuntuacion").value, requestOptions)
+        .then((response) => response.text())
+        .then((result) => console.log(result))
+        .catch((error) => console.error(error));
+}
+
+function modificarPuntuacion(){
+    const myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
+
+    const raw = JSON.stringify({
+        "modo": document.getElementById("modo").value,
+        "nickJugador": document.getElementById("nickname").value,
+        "puntuacion": document.getElementById("puntos").value
+    });
+
+    const requestOptions = {
+        method: "PUT",
+        headers: myHeaders,
+        body: raw,
+        redirect: "follow"
+    };
+
+    fetch("http://localhost:8080/api/puntuacion/"+document.getElementById("idPuntuacion").value, requestOptions)
         .then((response) => response.text())
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
