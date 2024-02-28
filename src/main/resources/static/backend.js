@@ -15,7 +15,7 @@ function cargarListaJuegos(){
         .then((result) => rellenaCombo(result))
         .catch((error) => console.error(error));
 }
-
+//Rellenar combobox de los juegos
 function rellenaCombo(resultado){
     selector = document.getElementById("comboJuegos")
     for (let juego of resultado) {
@@ -38,6 +38,7 @@ function mostrarPuntuaciones(id){
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
 }
+//Crear la puntuacion de los juegos
 function crearPuntuacion(){
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
@@ -60,6 +61,7 @@ function crearPuntuacion(){
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
 }
+//Borrar la puntuacion de un juego por id
 function borrarPuntuacion(){
     const requestOptions = {
         method: "DELETE",
@@ -72,6 +74,7 @@ function borrarPuntuacion(){
         .catch((error) => console.error(error));
 }
 
+//Modificar la puntuacion de un juego por su id
 function modificarPuntuacion(){
     const myHeaders = new Headers();
     myHeaders.append("Content-Type", "application/json");
